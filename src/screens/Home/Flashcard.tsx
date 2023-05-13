@@ -1,7 +1,7 @@
 import React from 'react';
 import {View} from 'react-native';
 
-import s from '../constants/styles';
+import s from '../../constants/styles';
 import FlashcardMenu from './FlashcardMenu';
 
 const Flashcard = () => {

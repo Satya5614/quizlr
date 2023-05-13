@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import Colors from '../constants/colors';
-import Home from '../screens/Home';
+import Home from '../screens/Home/';
 import * as Icons from '../assets/icons';
 import OtherScreens from '../screens/OtherScreens';
 
