@@ -1,13 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import {BaseButton} from 'react-native-gesture-handler';
 
-import Feedback from './Feedback';
+import s from '../../constants/styles';
 import FlashcardMenu from './CardMenu';
 import PlaylistSummary from './PlaylistSummary';
-import Loading from '../../components/Loading';
-import s from '../../constants/styles';
+import McqOption from './McqOption';
 import API from '../../data/api';
+import Loading from '../../components/Loading';
 
 const styles = StyleSheet.create({
   contentContainer: {
@@ -57,9 +56,16 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
 });
-export interface FlashcardDataProp {
-  flashcard_front: string;
-  flashcard_back: string;
+
+interface MCQOptionDataProps {
+  id: string;
+  answer: string;
+}
+
+export interface MQCardDataProp {
+  id: number;
+  question: string;
+  options: MCQOptionDataProps[];
   description: string;
   user: {
     name: string;
@@ -68,21 +74,29 @@ export interface FlashcardDataProp {
   playlist: string;
 }
 
-const Flashcard = () => {
-  const [showAnswer, setShowAnswer] = useState(false);
-  const onTapQues = () => setShowAnswer(!showAnswer);
+const MCQCard = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [answer, setAnswer] = useState<string[]>([]);
+  const [selectedAnswer, setSelectedAnswer] = useState<string>('');
+  const [data, setMCQData] = useState<MQCardDataProp>();
 
-  const [data, setFollowingData] = useState<FlashcardDataProp>();
+  const onSelectOption = (ans: string) => () => {
+    setSelectedAnswer(ans);
+  };
 
   useEffect(() => {
-    getFollowingData();
+    getMCQData();
   }, []);
 
-  const getFollowingData = async () => {
+  const getMCQData = async () => {
     setIsLoading(true);
-    const d = await API.fetchFlashcardData();
-    setFollowingData(d);
+    const mcq = await API.fetchMCQData();
+    const answerData = await API.fetchMCQAnswer(mcq?.id);
+    const correctAnswers = answerData?.correct_options.map(
+      (option: {id: string}) => option.id,
+    );
+    setMCQData(mcq);
+    setAnswer(correctAnswers);
     setIsLoading(false);
   };
 
@@ -94,31 +108,33 @@ const Flashcard = () => {
     <View style={[s.flex1]}>
       <View style={[s.flex1, s.row]}>
         <View style={styles.contentContainer}>
-          <BaseButton onPress={onTapQues} style={styles.quesContainer}>
-            <Text style={styles.quesText} numberOfLines={6}>
-              {data?.flashcard_front}
+          <View style={styles.quesContainer}>
+            <Text style={styles.quesText} numberOfLines={5}>
+              {data?.question}
             </Text>
-            {showAnswer && (
-              <>
-                <View style={styles.divider} />
-                <Text style={styles.answer}>Answer</Text>
-                <Text style={styles.answerText} numberOfLines={9}>
-                  {data?.flashcard_back}
-                </Text>
-              </>
-            )}
-          </BaseButton>
-          {showAnswer && <Feedback />}
+          </View>
+          {data?.options.map(option => (
+            <McqOption
+              key={option.id}
+              label={option.answer}
+              reveal={selectedAnswer !== ''}
+              onSelect={onSelectOption(option.id)}
+              isWrong={
+                selectedAnswer === option.id && !answer.includes(option.id)
+              }
+              isCorrect={answer.includes(option.id)}
+            />
+          ))}
           <View style={styles.descriptionContainer}>
             <Text style={styles.username}>{data?.user?.name}</Text>
             <Text style={styles.description}>{data?.description}</Text>
           </View>
         </View>
-        <FlashcardMenu avatar={data?.user?.avatar} />
+        <FlashcardMenu enableFollow avatar={data?.user?.avatar} />
       </View>
       <PlaylistSummary data={data?.playlist} />
     </View>
   );
 };
 
-export default Flashcard;
+export default MCQCard;

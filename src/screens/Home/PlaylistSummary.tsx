@@ -24,12 +24,12 @@ const styles = StyleSheet.create({
   },
 });
 
-const PlaylistSummary = () => {
+const PlaylistSummary = ({data}: {data?: string}) => {
   return (
     <TouchableOpacity style={styles.container}>
       <View style={styles.playlistContainer}>
         <Icons.Playlist fill="white" />
-        <Text style={styles.text}>Playlist - Unit 5: Period 5: 1844-1877</Text>
+        <Text style={styles.text}>{data}</Text>
       </View>
       <Icons.Right fill="white" />
     </TouchableOpacity>

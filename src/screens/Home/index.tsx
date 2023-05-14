@@ -7,9 +7,11 @@ import {
   View,
 } from 'react-native';
 import Carousel from 'react-native-reanimated-carousel';
+import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
 
 import Styles from '../../constants/styles';
 import Flashcard from './Flashcard';
+import MCQCard from './MCQCard';
 import * as Icons from '../../assets/icons';
 import TabBar from './TabBar';
 import Timer from './Timer';
@@ -35,7 +37,12 @@ const styles = StyleSheet.create({
 
 const Home = () => {
   const [activeTab, setActiveTab] = useState(0);
+  const tabBarHeight = useBottomTabBarHeight();
+
   const height = Dimensions.get('window').height;
+  const navbarHeight = 92;
+  const carouselHeight = height - tabBarHeight - navbarHeight;
+
   return (
     <SafeAreaView style={[Styles.flex1]}>
       <View style={styles.novContainer}>
@@ -48,13 +55,24 @@ const Home = () => {
           <Icons.Search fill="white" />
         </TouchableOpacity>
       </View>
-      <Carousel
-        vertical
-        enabled={activeTab === 0}
-        height={height - 170}
-        data={['red', 'green', 'yellow']}
-        renderItem={() => <Flashcard activeTab={activeTab} />}
-      />
+      {activeTab === 0 && (
+        <Carousel
+          loop
+          vertical
+          data={[0, 1, 2]}
+          height={carouselHeight}
+          renderItem={() => <Flashcard />}
+        />
+      )}
+      {activeTab === 1 && (
+        <Carousel
+          loop
+          vertical
+          data={[0, 1, 2]}
+          height={carouselHeight}
+          renderItem={() => <MCQCard />}
+        />
+      )}
     </SafeAreaView>
   );
 };

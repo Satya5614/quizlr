@@ -38,6 +38,11 @@ const styles = StyleSheet.create({
   emptyView: {
     backgroundColor: 'transparent',
   },
+  avatarImage: {
+    height: 45,
+    width: 45,
+    borderRadius: 45,
+  },
 });
 
 interface Props {
@@ -54,17 +59,22 @@ const MenuButton = ({icon, label}: Props) => {
   );
 };
 
-interface FlashcardMenuProps {
-  activeTab: number;
+interface CardMenuProps {
+  enableFollow?: boolean;
+  avatar?: string;
 }
 
-function FlashcardMenu({activeTab}: FlashcardMenuProps) {
+function CardMenu({enableFollow, avatar}: CardMenuProps) {
   return (
     <View style={styles.container}>
       <View style={styles.content}>
         <TouchableOpacity style={[styles.button]}>
-          <Image source={require('../../assets/images/avatar.png')} />
-          {activeTab === 1 ? (
+          <Image
+            source={{uri: avatar}}
+            style={styles.avatarImage}
+            defaultSource={require('../../assets/images/avatar.png')}
+          />
+          {enableFollow ? (
             <View style={styles.addIcon}>
               <Icons.Add fill="white" />
             </View>
@@ -82,4 +92,4 @@ function FlashcardMenu({activeTab}: FlashcardMenuProps) {
   );
 }
 
-export default FlashcardMenu;
+export default CardMenu;
