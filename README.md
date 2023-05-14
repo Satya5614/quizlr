@@ -1,6 +1,6 @@
-##Quizlr App
+## Quizlr App
 
-####App Demo
+#### App Demo
 
 **1. How long did it take to complete the assessment? (minutes)**
 
@@ -24,5 +24,6 @@ I think the expected time i.e 3.5h is less to compete assessment effectively.
 
 Overall I loved the designs of the app and enjoyed developing the UI, I fond some inconsistencies in the design elements, like consistent padding, colors and font sizes for test elements etc.
 
-###App Demo
-![App Demo](./quizlr-demo.gif)
+#### App Demo
+
+<img src="./quizlr-demo.gif" alt="Alt Text" height="650"/>
