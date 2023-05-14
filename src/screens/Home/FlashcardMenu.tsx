@@ -25,6 +25,19 @@ const styles = StyleSheet.create({
   avatar: {
     paddingBottom: 28,
   },
+  addIcon: {
+    backgroundColor: '#28B18F',
+    height: 24,
+    width: 24,
+    borderRadius: 24,
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'relative',
+    top: -14,
+  },
+  emptyView: {
+    backgroundColor: 'transparent',
+  },
 });
 
 interface Props {
@@ -41,12 +54,23 @@ const MenuButton = ({icon, label}: Props) => {
   );
 };
 
-function FlashcardMenu() {
+interface FlashcardMenuProps {
+  activeTab: number;
+}
+
+function FlashcardMenu({activeTab}: FlashcardMenuProps) {
   return (
     <View style={styles.container}>
       <View style={styles.content}>
-        <TouchableOpacity style={[styles.button, styles.avatar]}>
+        <TouchableOpacity style={[styles.button]}>
           <Image source={require('../../assets/images/avatar.png')} />
+          {activeTab === 1 ? (
+            <View style={styles.addIcon}>
+              <Icons.Add fill="white" />
+            </View>
+          ) : (
+            <View style={[styles.addIcon, styles.emptyView]} />
+          )}
         </TouchableOpacity>
         <MenuButton icon={<Icons.Like fill="white" />} label={87} />
         <MenuButton icon={<Icons.Comments fill="white" />} label={2} />
