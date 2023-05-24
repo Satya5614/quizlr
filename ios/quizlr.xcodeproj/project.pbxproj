@@ -12,6 +12,24 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		522594702A1A0F20003F31A4 /* FamilyControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5225946F2A1A0F20003F31A4 /* FamilyControls.framework */; };
+		522594732A1A0F2C003F31A4 /* ManagedSettingsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 522594712A1A0F2C003F31A4 /* ManagedSettingsUI.framework */; };
+		522594742A1A0F2C003F31A4 /* ManagedSettings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 522594722A1A0F2C003F31A4 /* ManagedSettings.framework */; };
+		522594762A1A0F36003F31A4 /* DeviceActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 522594752A1A0F36003F31A4 /* DeviceActivity.framework */; };
+		5225947B2A1A12B6003F31A4 /* FamilyControlsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5225947A2A1A12B6003F31A4 /* FamilyControlsModule.swift */; };
+		5225947C2A1A12B6003F31A4 /* FamilyControlsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5225947A2A1A12B6003F31A4 /* FamilyControlsModule.swift */; };
+		5225947E2A1A3DCB003F31A4 /* FamilyControlsModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 5225947D2A1A3DCB003F31A4 /* FamilyControlsModule.m */; };
+		5225947F2A1A3DCB003F31A4 /* FamilyControlsModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 5225947D2A1A3DCB003F31A4 /* FamilyControlsModule.m */; };
+		522594842A1A6418003F31A4 /* MyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522594832A1A6418003F31A4 /* MyModel.swift */; };
+		522594852A1A6418003F31A4 /* MyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522594832A1A6418003F31A4 /* MyModel.swift */; };
+		522594872A1A6460003F31A4 /* MySchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522594862A1A6460003F31A4 /* MySchedule.swift */; };
+		522594882A1A6460003F31A4 /* MySchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522594862A1A6460003F31A4 /* MySchedule.swift */; };
+		522594932A1AAC11003F31A4 /* FamilyControlViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522594922A1AAC11003F31A4 /* FamilyControlViewManager.swift */; };
+		522594942A1AAC11003F31A4 /* FamilyControlViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522594922A1AAC11003F31A4 /* FamilyControlViewManager.swift */; };
+		522594962A1AAC2D003F31A4 /* FamilyControlViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 522594952A1AAC2D003F31A4 /* FamilyControlViewManager.m */; };
+		522594972A1AAC2D003F31A4 /* FamilyControlViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 522594952A1AAC2D003F31A4 /* FamilyControlViewManager.m */; };
+		522594992A1AAE25003F31A4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522594982A1AAE25003F31A4 /* ContentView.swift */; };
+		5225949A2A1AAE25003F31A4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522594982A1AAE25003F31A4 /* ContentView.swift */; };
 		7699B88040F8A987B510C191 /* libPods-quizlr-quizlrTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-quizlr-quizlrTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -38,6 +56,20 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = quizlr/main.m; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-quizlr-quizlrTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-quizlr-quizlrTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4392A12AC88292D35C810B /* Pods-quizlr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quizlr.debug.xcconfig"; path = "Target Support Files/Pods-quizlr/Pods-quizlr.debug.xcconfig"; sourceTree = "<group>"; };
+		5225946F2A1A0F20003F31A4 /* FamilyControls.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FamilyControls.framework; path = System/Library/Frameworks/FamilyControls.framework; sourceTree = SDKROOT; };
+		522594712A1A0F2C003F31A4 /* ManagedSettingsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ManagedSettingsUI.framework; path = System/Library/Frameworks/ManagedSettingsUI.framework; sourceTree = SDKROOT; };
+		522594722A1A0F2C003F31A4 /* ManagedSettings.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ManagedSettings.framework; path = System/Library/Frameworks/ManagedSettings.framework; sourceTree = SDKROOT; };
+		522594752A1A0F36003F31A4 /* DeviceActivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeviceActivity.framework; path = System/Library/Frameworks/DeviceActivity.framework; sourceTree = SDKROOT; };
+		522594772A1A0FDA003F31A4 /* quizlr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = quizlr.entitlements; path = quizlr/quizlr.entitlements; sourceTree = "<group>"; };
+		522594782A1A12B5003F31A4 /* quizlr-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "quizlr-Bridging-Header.h"; sourceTree = "<group>"; };
+		522594792A1A12B5003F31A4 /* quizlrTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "quizlrTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		5225947A2A1A12B6003F31A4 /* FamilyControlsModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyControlsModule.swift; sourceTree = "<group>"; };
+		5225947D2A1A3DCB003F31A4 /* FamilyControlsModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FamilyControlsModule.m; sourceTree = "<group>"; };
+		522594832A1A6418003F31A4 /* MyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyModel.swift; sourceTree = "<group>"; };
+		522594862A1A6460003F31A4 /* MySchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySchedule.swift; sourceTree = "<group>"; };
+		522594922A1AAC11003F31A4 /* FamilyControlViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyControlViewManager.swift; sourceTree = "<group>"; };
+		522594952A1AAC2D003F31A4 /* FamilyControlViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FamilyControlViewManager.m; sourceTree = "<group>"; };
+		522594982A1AAE25003F31A4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-quizlr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quizlr.release.xcconfig"; path = "Target Support Files/Pods-quizlr/Pods-quizlr.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-quizlr-quizlrTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quizlr-quizlrTests.debug.xcconfig"; path = "Target Support Files/Pods-quizlr-quizlrTests/Pods-quizlr-quizlrTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-quizlr.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-quizlr.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,6 +91,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				522594762A1A0F36003F31A4 /* DeviceActivity.framework in Frameworks */,
+				522594732A1A0F2C003F31A4 /* ManagedSettingsUI.framework in Frameworks */,
+				522594742A1A0F2C003F31A4 /* ManagedSettings.framework in Frameworks */,
+				522594702A1A0F20003F31A4 /* FamilyControls.framework in Frameworks */,
 				0C80B921A6F3F58F76C31292 /* libPods-quizlr.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -86,12 +122,22 @@
 		13B07FAE1A68108700A75B9A /* quizlr */ = {
 			isa = PBXGroup;
 			children = (
+				522594772A1A0FDA003F31A4 /* quizlr.entitlements */,
+				522594982A1AAE25003F31A4 /* ContentView.swift */,
+				522594952A1AAC2D003F31A4 /* FamilyControlViewManager.m */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
+				522594922A1AAC11003F31A4 /* FamilyControlViewManager.swift */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				5225947A2A1A12B6003F31A4 /* FamilyControlsModule.swift */,
+				522594782A1A12B5003F31A4 /* quizlr-Bridging-Header.h */,
+				5225947D2A1A3DCB003F31A4 /* FamilyControlsModule.m */,
+				522594792A1A12B5003F31A4 /* quizlrTests-Bridging-Header.h */,
+				522594832A1A6418003F31A4 /* MyModel.swift */,
+				522594862A1A6460003F31A4 /* MySchedule.swift */,
 			);
 			name = quizlr;
 			sourceTree = "<group>";
@@ -99,6 +145,10 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				522594752A1A0F36003F31A4 /* DeviceActivity.framework */,
+				522594722A1A0F2C003F31A4 /* ManagedSettings.framework */,
+				522594712A1A0F2C003F31A4 /* ManagedSettingsUI.framework */,
+				5225946F2A1A0F20003F31A4 /* FamilyControls.framework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				5DCACB8F33CDC322A6C60F78 /* libPods-quizlr.a */,
 				19F6CBCC0A4E27FBF8BF4A61 /* libPods-quizlr-quizlrTests.a */,
@@ -204,10 +254,11 @@
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
+						LastSwiftMigration = 1430;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1430;
 					};
 				};
 			};
@@ -404,6 +455,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5225947C2A1A12B6003F31A4 /* FamilyControlsModule.swift in Sources */,
+				522594942A1AAC11003F31A4 /* FamilyControlViewManager.swift in Sources */,
+				5225949A2A1AAE25003F31A4 /* ContentView.swift in Sources */,
+				522594852A1A6418003F31A4 /* MyModel.swift in Sources */,
+				522594972A1AAC2D003F31A4 /* FamilyControlViewManager.m in Sources */,
+				5225947F2A1A3DCB003F31A4 /* FamilyControlsModule.m in Sources */,
+				522594882A1A6460003F31A4 /* MySchedule.swift in Sources */,
 				00E356F31AD99517003FC87E /* quizlrTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,7 +470,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				522594842A1A6418003F31A4 /* MyModel.swift in Sources */,
+				5225947E2A1A3DCB003F31A4 /* FamilyControlsModule.m in Sources */,
+				5225947B2A1A12B6003F31A4 /* FamilyControlsModule.swift in Sources */,
+				522594932A1AAC11003F31A4 /* FamilyControlViewManager.swift in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
+				522594992A1AAE25003F31A4 /* ContentView.swift in Sources */,
+				522594872A1A6460003F31A4 /* MySchedule.swift in Sources */,
+				522594962A1AAC2D003F31A4 /* FamilyControlViewManager.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -432,7 +497,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-quizlr-quizlrTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -451,6 +518,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "quizlrTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/quizlr.app/quizlr";
 			};
 			name = Debug;
@@ -459,7 +529,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-quizlr-quizlrTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = quizlrTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
@@ -475,6 +547,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "quizlrTests-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/quizlr.app/quizlr";
 			};
 			name = Release;
@@ -485,6 +559,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = quizlr/quizlr.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = quizlr/Info.plist;
@@ -500,6 +575,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = quizlr;
+				SWIFT_OBJC_BRIDGING_HEADER = "quizlr-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -512,6 +588,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = quizlr/quizlr.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = quizlr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -526,6 +603,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = quizlr;
+				SWIFT_OBJC_BRIDGING_HEADER = "quizlr-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
