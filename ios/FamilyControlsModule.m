@@ -13,5 +13,6 @@
 RCT_EXTERN_METHOD(requestAuthorization)
 RCT_EXTERN_METHOD(selectAppsToDiscourage)
 RCT_EXTERN_METHOD(selectAppsToEncourage)
+RCT_EXTERN_METHOD(setMonitorActivitySchedule: (int) thresholdInSeconds)
 
 @end

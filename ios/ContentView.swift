@@ -1,32 +1,16 @@
 import FamilyControls
+import ManagedSettings
 import SwiftUI
+import DeviceActivity
 
 @available(iOS 16.0, *)
 struct ContentView: View {
-    @State private var isDiscouragedPresented = true
-    @State private var isEncouragedPresented = false
-
-    @EnvironmentObject var model: MyModel
+    @AppStorage("shieldApps", store: UserDefaults(suiteName: "group.com.appeneure.quizlr")) var shieldApps = FamilyActivitySelection()
     @Environment(\.presentationMode) var presentationMode
 
     @ViewBuilder
     func contentView() -> some View {
-        switch globalMethodCall {
-        case "selectAppsToDiscourage":
-            FamilyActivityPicker(selection: $model.selectionToDiscourage)
-                .onChange(of: model.selectionToDiscourage) { _ in
-                    model.setShieldRestrictions()
-                }
-        case "selectAppsToEncourage":
-            FamilyActivityPicker(selection: $model.selectionToEncourage)
-                .onChange(of: model.selectionToEncourage) { _ in
-                    MySchedule.setSchedule()
-                }
-
-        default:
-            Text("Default")
-            // Add the views you want to display for the default case
-        }
+      FamilyActivityPicker(selection: $shieldApps)
     }
 
     var body: some View {
@@ -40,17 +24,31 @@ struct ContentView: View {
                     presentationMode.wrappedValue.dismiss()
                 },
                 trailing: Button("Done") {
-                    switch globalMethodCall {
-                    case "selectAppsToDiscourage":
-                        model.setShieldRestrictions()
-                    case "selectAppsToEncourage":
-                        MySchedule.setSchedule()
-                    default:
-                        break
-                    }
                     presentationMode.wrappedValue.dismiss()
                 }
             )
         }
     }
 }
+
+@available(iOS 15.0, *)
+extension FamilyActivitySelection: RawRepresentable {
+    public init?(rawValue: String) {
+        guard let data = rawValue.data(using: .utf8),
+            let result = try? JSONDecoder().decode(FamilyActivitySelection.self, from: data)
+        else {
+            return nil
+        }
+        self = result
+    }
+
+    public var rawValue: String {
+        guard let data = try? JSONEncoder().encode(self),
+            let result = String(data: data, encoding: .utf8)
+        else {
+            return "[]"
+        }
+        return result
+    }
+}
+

@@ -53,8 +53,8 @@ export default function App() {
           fontWeight: '500',
         },
       })}>
-      <Tab.Screen name="Discover" component={OtherScreens} />
       <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen name="Discover" component={OtherScreens} />
       <Tab.Screen name="Activity" component={OtherScreens} />
       <Tab.Screen name="Bookmarks" component={OtherScreens} />
       <Tab.Screen name="Profile" component={OtherScreens} />

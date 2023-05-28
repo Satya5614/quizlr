@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   Dimensions,
   SafeAreaView,
   StyleSheet,
   TouchableOpacity,
   View,
+  NativeModules,
 } from 'react-native';
 import Carousel from 'react-native-reanimated-carousel';
 import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
@@ -15,6 +16,8 @@ import MCQCard from './MCQCard';
 import * as Icons from '../../assets/icons';
 import TabBar from './TabBar';
 import Timer from './Timer';
+
+const {FamilyControlsModule} = NativeModules;
 
 const styles = StyleSheet.create({
   novContainer: {
@@ -42,6 +45,10 @@ const Home = () => {
   const height = Dimensions.get('window').height;
   const navbarHeight = 92;
   const carouselHeight = height - tabBarHeight - navbarHeight;
+
+  useEffect(() => {
+    FamilyControlsModule.requestAuthorization();
+  }, []);
 
   return (
     <SafeAreaView style={[Styles.flex1]}>

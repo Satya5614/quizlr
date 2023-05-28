@@ -5,6 +5,7 @@
 //  Created by Satya Prakash Goyal on 21/05/23.
 //
 
+import SwiftUI
 import Foundation
 import FamilyControls
 import ManagedSettings
@@ -32,7 +33,6 @@ class MyModel: ObservableObject {
     
     func setShieldRestrictions() {
         print("setShieldRestrictions")
-        // Pull the selection out of the app's model and configure the application shield restriction accordingly
         let applications = MyModel.shared.selectionToDiscourage
         if applications.applicationTokens.isEmpty {
             print("empty applicationTokens")

@@ -74,4 +74,10 @@ class FamilyControlsModule: NSObject {
       controller.present(vc, animated: true, completion: nil)
     }
   }
+  
+  @objc
+  func setMonitorActivitySchedule(_ thresholdInSeconds: Int) {
+    print("selectAppsToEncourage");
+    MySchedule.setSchedule(thresholdInSeconds: thresholdInSeconds)
+  }
 }

@@ -14,27 +14,27 @@ interface OtherScreensProps {
 }
 
 const OtherScreens = ({route}: OtherScreensProps) => {
-  const onPressDiscourage = () => {
-    FamilyControlsModule.selectAppsToDiscourage();
+  const setActivitySchedule = () => {
+    FamilyControlsModule.setMonitorActivitySchedule(20);
   };
 
   const onPressEncourage = () => {
     FamilyControlsModule.selectAppsToEncourage();
   };
 
-  const onPressAuthorize = () => {
-    FamilyControlsModule.requestAuthorization();
-  };
-
   return (
     <View style={Styles.centerInContainer}>
       <Button
-        title="Discourage Apps"
+        title="Monitor Activity"
         color="#fff"
-        onPress={onPressDiscourage}
+        onPress={setActivitySchedule}
       />
-      <Button title="Encourage Apps" color="#fff" onPress={onPressEncourage} />
-      <Button title="Authorize" color="#fff" onPress={onPressAuthorize} />
+      <Button
+        title="Select Apps to Shield"
+        color="#fff"
+        onPress={onPressEncourage}
+      />
+      <Button title="Remove Shield" color="#fff" onPress={onPressEncourage} />
     </View>
   );
 };

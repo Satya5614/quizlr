@@ -6,30 +6,36 @@
 //
 import Foundation
 import DeviceActivity
+import FamilyControls
+import ManagedSettings
 
 // The Device Activity name is how I can reference the activity from within my extension
-@available(iOS 15.0, *)
+@available(iOS 16.0, *)
 extension DeviceActivityName {
     // Set the name of the activity to "daily"
     static let daily = Self("daily")
 }
 
 // I want to remove the application shield restriction when the child accumulates enough usage for a set of guardian-selected encouraged apps
-@available(iOS 15.0, *)
+@available(iOS 16.0, *)
 extension DeviceActivityEvent.Name {
     // Set the name of the event to "encouraged"
     static let encouraged = Self("encouraged")
 }
 
-// The Device Activity schedule represents the time bounds in which my extension will monitor for activity
-@available(iOS 15.0, *)
+let dateComponents = Calendar.current.dateComponents([.hour, .minute, .second],
+                                                     from: Date())
+
+@available(iOS 16.0, *)
 let schedule = DeviceActivitySchedule(
     // I've set my schedule to start and end at midnight
-    intervalStart: DateComponents(hour: 15, minute: 08),
-    intervalEnd: DateComponents(hour: 16, minute: 08),
+    intervalStart: DateComponents(hour: dateComponents.hour,
+                                  minute: dateComponents.minute,
+                                  second: dateComponents.second),
+    intervalEnd: DateComponents(hour: 23,
+                                minute: 59),
     // I've also set the schedule to repeat
-    repeats: false,
-    warningTime: nil
+    repeats: true
 )
 
 @available(iOS 16.0, *)
@@ -44,24 +50,36 @@ class MySchedule {
         print("center.avtivities:\(center.activities)")
     }
     
-    static public func setSchedule() {
-        let applications = MyModel.shared.selectionToEncourage
-        if applications.applicationTokens.isEmpty {
+    static public func setSchedule(thresholdInSeconds: Int = 10) {
+      
+      print("-------------thresholdInSeconds--------------------")
+      print(thresholdInSeconds)
+      print("---------------------------------")
+      
+      
+      let suiteName = "group.com.appeneure.quizlr"
+      let shieldApps = UserDefaults(suiteName: suiteName)?.object(forKey: "shieldApps")
+      let applications = FamilyActivitySelection(rawValue: shieldApps! as! String)
+      
+//        let applications = MyModel.shared.selectionToEncourage
+        if applications!.applicationTokens.isEmpty {
             print("empty applicationTokens")
         }
-        if applications.categoryTokens.isEmpty {
+        if applications!.categoryTokens.isEmpty {
             print("empty categoryTokens")
         }
+      
+//        let store = ManagedSettingsStore();
+//        store.shield.applicationCategories = ShieldSettings.ActivityCategoryPolicy.specific(applications!.categoryTokens)
         
         let events: [DeviceActivityEvent.Name: DeviceActivityEvent] = [
             .encouraged: DeviceActivityEvent(
-                applications: applications.applicationTokens,
-                categories: applications.categoryTokens,
-                threshold: DateComponents(minute: 1)
+                applications: applications!.applicationTokens,
+                categories: applications!.categoryTokens,
+                threshold: DateComponents(second: thresholdInSeconds)
             )
         ]
         
-        // Create a Device Activity center
         let center = DeviceActivityCenter()
         do {
             // Call startMonitoring with the activity name, schedule, and events
@@ -74,6 +92,3 @@ class MySchedule {
         }
     }
 }
-
-// Another ingredient to shielding apps is figuring out what the guardian wants to discourage
-// The Family Controls framework has a SwiftUI element for this: the family activity picker
