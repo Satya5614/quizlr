@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   View,
   NativeModules,
+  Alert,
 } from 'react-native';
 import Carousel from 'react-native-reanimated-carousel';
 import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
@@ -39,16 +40,42 @@ const styles = StyleSheet.create({
 });
 
 const Home = () => {
-  const [activeTab, setActiveTab] = useState(0);
   const tabBarHeight = useBottomTabBarHeight();
+  const [activeTab, setActiveTab] = useState(0);
+  const [authStatus, setAuthStatus] = useState('' as string);
 
   const height = Dimensions.get('window').height;
   const navbarHeight = 92;
   const carouselHeight = height - tabBarHeight - navbarHeight;
 
+  const auth = async () => {
+    const result = await FamilyControlsModule.requestAuthorization();
+    setAuthStatus(result);
+  };
+
   useEffect(() => {
-    FamilyControlsModule.requestAuthorization();
-  }, []);
+    if (authStatus !== 'approved') {
+      auth();
+    }
+    if (authStatus === 'approved') {
+      FamilyControlsModule.isAppToShieldSelected((selected: string) => {
+        if (selected === 'no') {
+          Alert.alert(
+            'Select apps to Block',
+            'You have not selected any apps to shield. Please select apps to shield.',
+            [
+              {
+                text: 'OK',
+                onPress: () => {
+                  FamilyControlsModule.selectAppsToShield();
+                },
+              },
+            ],
+          );
+        }
+      });
+    }
+  }, [authStatus]);
 
   return (
     <SafeAreaView style={[Styles.flex1]}>

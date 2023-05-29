@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, NativeModules, Button} from 'react-native';
+import {View, NativeModules, Button, Alert} from 'react-native';
 import {RouteProp} from '@react-navigation/native';
 
 import {RootStackParamList} from '../navigator/types';
@@ -14,12 +14,36 @@ interface OtherScreensProps {
 }
 
 const OtherScreens = ({route}: OtherScreensProps) => {
-  const setActivitySchedule = () => {
-    FamilyControlsModule.setMonitorActivitySchedule(20);
+  const removeShield = () => {
+    FamilyControlsModule.removeShield();
   };
 
-  const onPressEncourage = () => {
-    FamilyControlsModule.selectAppsToEncourage();
+  const setActivitySchedule = () => {
+    Alert.prompt(
+      'Set Allowed Time',
+      'Enter the number of seconds you want to remove the shield',
+      [
+        {
+          text: 'Cancel',
+          onPress: () => console.log('Cancel Pressed'),
+          style: 'cancel',
+        },
+        {
+          text: 'Set',
+          onPress: result => {
+            removeShield();
+            FamilyControlsModule.setMonitorActivitySchedule(+result || 0);
+          },
+        },
+      ],
+      'plain-text',
+    );
+  };
+
+  // FamilyControlsModule.setMonitorActivitySchedule(20);
+
+  const selectAppsToShield = () => {
+    FamilyControlsModule.selectAppsToShield();
   };
 
   return (
@@ -32,9 +56,9 @@ const OtherScreens = ({route}: OtherScreensProps) => {
       <Button
         title="Select Apps to Shield"
         color="#fff"
-        onPress={onPressEncourage}
+        onPress={selectAppsToShield}
       />
-      <Button title="Remove Shield" color="#fff" onPress={onPressEncourage} />
+      <Button title="Remove Shield" color="#fff" onPress={removeShield} />
     </View>
   );
 };

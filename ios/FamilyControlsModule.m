@@ -10,9 +10,12 @@
 
 @interface RCT_EXTERN_MODULE(FamilyControlsModule, NSObject)
 
-RCT_EXTERN_METHOD(requestAuthorization)
-RCT_EXTERN_METHOD(selectAppsToDiscourage)
-RCT_EXTERN_METHOD(selectAppsToEncourage)
+RCT_EXTERN_METHOD(requestAuthorization: (RCTPromiseResolveBlock) resolve
+                  rejecter: (RCTPromiseRejectBlock) reject)
+RCT_EXTERN_METHOD(removeShield)
+RCT_EXTERN_METHOD(selectAppsToShield)
 RCT_EXTERN_METHOD(setMonitorActivitySchedule: (int) thresholdInSeconds)
+RCT_EXTERN_METHOD(unsetActivitySchedule)
+RCT_EXTERN_METHOD(isAppToShieldSelected: (RCTResponseSenderBlock) callback)
 
 @end

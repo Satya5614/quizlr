@@ -16,16 +16,12 @@
 		522594742A1A0F2C003F31A4 /* ManagedSettings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 522594722A1A0F2C003F31A4 /* ManagedSettings.framework */; };
 		5225947B2A1A12B6003F31A4 /* FamilyControlsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5225947A2A1A12B6003F31A4 /* FamilyControlsModule.swift */; };
 		5225947E2A1A3DCB003F31A4 /* FamilyControlsModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 5225947D2A1A3DCB003F31A4 /* FamilyControlsModule.m */; };
-		522594842A1A6418003F31A4 /* MyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522594832A1A6418003F31A4 /* MyModel.swift */; };
 		522594872A1A6460003F31A4 /* MySchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522594862A1A6460003F31A4 /* MySchedule.swift */; };
-		522594932A1AAC11003F31A4 /* FamilyControlViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522594922A1AAC11003F31A4 /* FamilyControlViewManager.swift */; };
-		522594962A1AAC2D003F31A4 /* FamilyControlViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 522594952A1AAC2D003F31A4 /* FamilyControlViewManager.m */; };
 		522594992A1AAE25003F31A4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522594982A1AAE25003F31A4 /* ContentView.swift */; };
 		5230A0902A209CCD00AD9B33 /* MySchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522594862A1A6460003F31A4 /* MySchedule.swift */; };
 		529BC0DC2A1E5D9F00D40962 /* DeviceActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 522594752A1A0F36003F31A4 /* DeviceActivity.framework */; };
 		529BC0DF2A1E5D9F00D40962 /* DeviceActivityMonitorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529BC0DE2A1E5D9F00D40962 /* DeviceActivityMonitorExtension.swift */; };
 		529BC0E42A1E5D9F00D40962 /* QuizlrDeviceActivityMonitorExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 529BC0DB2A1E5D9F00D40962 /* QuizlrDeviceActivityMonitorExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		529BC0E92A1E5F4800D40962 /* MyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522594832A1A6418003F31A4 /* MyModel.swift */; };
 		52D824292A1E7CC200392F1E /* DeviceActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 522594752A1A0F36003F31A4 /* DeviceActivity.framework */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -74,10 +70,7 @@
 		522594792A1A12B5003F31A4 /* quizlrTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "quizlrTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		5225947A2A1A12B6003F31A4 /* FamilyControlsModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyControlsModule.swift; sourceTree = "<group>"; };
 		5225947D2A1A3DCB003F31A4 /* FamilyControlsModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FamilyControlsModule.m; sourceTree = "<group>"; };
-		522594832A1A6418003F31A4 /* MyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyModel.swift; sourceTree = "<group>"; };
 		522594862A1A6460003F31A4 /* MySchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySchedule.swift; sourceTree = "<group>"; };
-		522594922A1AAC11003F31A4 /* FamilyControlViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyControlViewManager.swift; sourceTree = "<group>"; };
-		522594952A1AAC2D003F31A4 /* FamilyControlViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FamilyControlViewManager.m; sourceTree = "<group>"; };
 		522594982A1AAE25003F31A4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		529BC0DB2A1E5D9F00D40962 /* QuizlrDeviceActivityMonitorExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = QuizlrDeviceActivityMonitorExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		529BC0DE2A1E5D9F00D40962 /* DeviceActivityMonitorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityMonitorExtension.swift; sourceTree = "<group>"; };
@@ -137,9 +130,7 @@
 			children = (
 				522594772A1A0FDA003F31A4 /* quizlr.entitlements */,
 				522594982A1AAE25003F31A4 /* ContentView.swift */,
-				522594952A1AAC2D003F31A4 /* FamilyControlViewManager.m */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
-				522594922A1AAC11003F31A4 /* FamilyControlViewManager.swift */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
@@ -149,7 +140,6 @@
 				522594782A1A12B5003F31A4 /* quizlr-Bridging-Header.h */,
 				5225947D2A1A3DCB003F31A4 /* FamilyControlsModule.m */,
 				522594792A1A12B5003F31A4 /* quizlrTests-Bridging-Header.h */,
-				522594832A1A6418003F31A4 /* MyModel.swift */,
 				522594862A1A6460003F31A4 /* MySchedule.swift */,
 			);
 			name = quizlr;
@@ -420,14 +410,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				522594842A1A6418003F31A4 /* MyModel.swift in Sources */,
 				5225947E2A1A3DCB003F31A4 /* FamilyControlsModule.m in Sources */,
 				5225947B2A1A12B6003F31A4 /* FamilyControlsModule.swift in Sources */,
-				522594932A1AAC11003F31A4 /* FamilyControlViewManager.swift in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				522594992A1AAE25003F31A4 /* ContentView.swift in Sources */,
 				522594872A1A6460003F31A4 /* MySchedule.swift in Sources */,
-				522594962A1AAC2D003F31A4 /* FamilyControlViewManager.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -437,7 +424,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				529BC0DF2A1E5D9F00D40962 /* DeviceActivityMonitorExtension.swift in Sources */,
-				529BC0E92A1E5F4800D40962 /* MyModel.swift in Sources */,
 				5230A0902A209CCD00AD9B33 /* MySchedule.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

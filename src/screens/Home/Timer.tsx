@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import {Text, StyleSheet} from 'react-native';
+import {Text, StyleSheet, NativeModules, AppState} from 'react-native';
+
+const {FamilyControlsModule} = NativeModules;
 
 const styles = StyleSheet.create({
   timerText: {
@@ -10,6 +12,24 @@ const styles = StyleSheet.create({
 
 const Timer = () => {
   const [seconds, setSeconds] = useState(0);
+
+  const setActivitySchedule = (nextAppState: string) => {
+    if (nextAppState === 'background' || nextAppState === 'inactive') {
+      FamilyControlsModule.removeShield();
+      FamilyControlsModule.setMonitorActivitySchedule(seconds);
+    }
+  };
+
+  useEffect(() => {
+    const subscription = AppState.addEventListener(
+      'change',
+      setActivitySchedule,
+    );
+
+    return () => {
+      subscription.remove();
+    };
+  }, []);
 
   useEffect(() => {
     const intervalId = setInterval(() => {

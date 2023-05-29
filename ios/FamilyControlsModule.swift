@@ -14,70 +14,69 @@ import UIKit
 @available(iOS 16.0, *)
 @objc(FamilyControlsModule)
 class FamilyControlsModule: NSObject {
+  let controller: UIViewController = (UIApplication.shared.windows.first?.rootViewController)!
   
   @objc static func requiresMainQueueSetup() -> Bool { return true }
   
-  @objc public func requestAuthorization() {
+  @objc public func requestAuthorization(_ resolve: @escaping RCTPromiseResolveBlock,
+                                         rejecter reject: @escaping RCTPromiseRejectBlock) {
     Task {
-      await reqAuth();
+      let status = await reqAuth();
+      resolve(status)
     }
   }
   
-  public func reqAuth() async {
-    print("try requestAuthorization")
+  func reqAuth() async -> String {
+    var status: String = ""
     do {
-      print("try requestAuthorization")
       try await AuthorizationCenter.shared.requestAuthorization(for: FamilyControlsMember.individual)
-      print("requestAuthorization success")
       switch AuthorizationCenter.shared.authorizationStatus {
       case .notDetermined:
-          print("not determined")
+          status = "not determined"
       case .denied:
-          print("denied")
+          status = "denied"
       case .approved:
-          print("approved")
+          status = "approved"
       @unknown default:
           break
       }
     } catch {
-        print("Error requestAuthorization: ", error)
+        status = "error"
     }
-  }
-  
-  @StateObject var model = MyModel.shared
-  @StateObject var store = ManagedSettingsStore()
-  
-  let controller: UIViewController = (UIApplication.shared.windows.first?.rootViewController)!
-  
-  @objc
-  func selectAppsToDiscourage() {
-    print("selectAppsToDiscourage")
-    globalMethodCall = "selectAppsToDiscourage"
-    Task {
-      let vc = UIHostingController(rootView: ContentView()
-                          .environmentObject(model)
-                          .environmentObject(store))
-
-      controller.present(vc, animated: true, completion: nil)
-    }
+    return status
   }
   
   @objc
-  func selectAppsToEncourage() {
-    print("selectAppsToEncourage")
-    globalMethodCall = "selectAppsToEncourage"
+  func removeShield() {
+    let store = ManagedSettingsStore()
+    store.shield.applicationCategories = nil;
+    store.shield.applications = nil;
+  }
+  
+  @objc
+  func selectAppsToShield() {
     Task {
-      let vc = UIHostingController(rootView: ContentView()
-                          .environmentObject(model)
-                          .environmentObject(store))
-
-      controller.present(vc, animated: true, completion: nil)
+      let vc = await UIHostingController(rootView: ContentView())
+      await controller.present(vc, animated: true, completion: nil)
     }
   }
   
   @objc
   func setMonitorActivitySchedule(_ thresholdInSeconds: Int) {
-    print("selectAppsToEncourage");
     MySchedule.setSchedule(thresholdInSeconds: thresholdInSeconds)
+  }
+  
+  @objc
+  func isAppToShieldSelected(_ callback: RCTResponseSenderBlock) {
+    if(MySchedule.isAppToShieldSelected()) {
+      callback(["yes"])
+    } else {
+      callback(["no"])
+    }
+  }
+  
+  @objc
+  func unsetActivitySchedule() {
+    MySchedule.unsetSchedule()
   }
 }

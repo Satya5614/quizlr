@@ -12,6 +12,14 @@ struct ContentView: View {
     func contentView() -> some View {
       FamilyActivityPicker(selection: $shieldApps)
     }
+  
+  func addOrRemoveShieldFromSelectedApps() {
+    let store = ManagedSettingsStore()
+    store.shield.applications = shieldApps.applicationTokens.isEmpty ? nil : shieldApps.applicationTokens
+    store.shield.applicationCategories = shieldApps.categoryTokens.isEmpty
+    ? nil
+    : ShieldSettings.ActivityCategoryPolicy.specific(shieldApps.categoryTokens)
+  }
 
     var body: some View {
         NavigationView {
@@ -24,6 +32,7 @@ struct ContentView: View {
                     presentationMode.wrappedValue.dismiss()
                 },
                 trailing: Button("Done") {
+                    addOrRemoveShieldFromSelectedApps()
                     presentationMode.wrappedValue.dismiss()
                 }
             )
